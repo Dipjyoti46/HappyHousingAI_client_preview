@@ -58,54 +58,54 @@ const RealtorSchedule = ({ toggleRealotrSchedule }) => {
   }
 
   return (
-    <div className='w-3/4 h-[80vh] bg-white p-0 rounded-xl shadow-lg relative overflow-hidden flex flex-col mx-auto mt-10'>
+    <div className='w-[95%] md:w-3/4 h-[90vh] md:h-[80vh] bg-white p-0 rounded-xl shadow-lg relative overflow-hidden flex flex-col mx-auto mt-5 md:mt-10'>
       {/* Header */}
-      <div className='w-full h-20 bg-blue-800/90 rounded-tl-xl rounded-tr-xl p-5 relative'>
+      <div className='w-full h-16 md:h-20 bg-blue-800/90 rounded-tl-xl rounded-tr-xl p-3 md:p-5 relative'>
         <button
           onClick={toggleRealotrSchedule}
-          className='absolute w-10 h-10 rounded-xl top-2 right-2 bg-white text-black font-bold text-xl'
+          className='absolute w-8 h-8 md:w-10 md:h-10 rounded-xl top-2 right-2 bg-white text-black font-bold text-lg md:text-xl'
         >
           X
         </button>
-        <h1 className='text-2xl font-bold text-white'>Schedule Time</h1>
+        <h1 className='text-xl md:text-2xl font-bold text-white'>Schedule Time</h1>
       </div>
 
       {/* Scrollable content */}
-      <div className='flex-1 overflow-y-auto p-5'>
-        <div className='flex flex-col gap-8'>
+      <div className='flex-1 overflow-y-auto p-3 md:p-5'>
+        <div className='flex flex-col gap-4 md:gap-8'>
           {/* Realtor Details */}
           <div className='bg-gray-200 rounded-xl p-2 shadow-sm'>
-            <div className='flex items-center gap-6'>
+            <div className='flex items-center gap-3 md:gap-6'>
               <div className='relative'>
                 <img 
                   src={realtorData.image} 
                   alt={realtorData.name}
-                  className='w-20 h-20 rounded-full object-cover border-4 border-white shadow-md'
+                  className='w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-4 border-white shadow-md'
                 />
                 <div className='absolute -bottom-2 -right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full'>
                   Available
                 </div>
               </div>
               <div className='flex-1'>
-                <h2 className='text-2xl font-bold text-gray-800'>{realtorData.name}</h2>
-                <p className='text-gray-600'>{realtorData.role}</p>
-                <div className='flex items-center gap-4 mt-2'>
+                <h2 className='text-lg md:text-2xl font-bold text-gray-800'>{realtorData.name}</h2>
+                <p className='text-sm md:text-base text-gray-600'>{realtorData.role}</p>
+                <div className='flex items-center gap-2 md:gap-4 mt-1 md:mt-2'>
                   <div className='flex items-center gap-1'>
                     <span className='text-yellow-400'>★</span>
-                    <span className='font-semibold'>{realtorData.rating}</span>
-                    <span className='text-gray-500'>({realtorData.reviews} reviews)</span>
+                    <span className='font-semibold text-sm md:text-base'>{realtorData.rating}</span>
+                    <span className='text-gray-500 text-sm md:text-base'>({realtorData.reviews} reviews)</span>
                   </div>
                   <span className='text-gray-500'>•</span>
-                  <span className='text-gray-600'>{realtorData.experience} experience</span>
+                  <span className='text-gray-600 text-sm md:text-base'>{realtorData.experience} experience</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Calendar and Time Slots Section */}
-          <div className='w-full flex gap-10'>
+          <div className='w-full flex flex-col md:flex-row gap-5 md:gap-10'>
             {/* Calendar Section */}
-            <div className='w-1/3'>
+            <div className='w-full md:w-1/3'>
               <Calendar
                 onChange={setSelectedDate}
                 value={selectedDate}
@@ -125,11 +125,11 @@ const RealtorSchedule = ({ toggleRealotrSchedule }) => {
             </div>
 
             {/* Time Slots Section */}
-            <div className='w-2/3'>
-              <h2 className='text-xl font-semibold mb-4'>
+            <div className='w-full md:w-2/3'>
+              <h2 className='text-lg md:text-xl font-semibold mb-3 md:mb-4'>
                 Available Time Slots for {selectedDate.toLocaleDateString()}
               </h2>
-              <div className='grid grid-cols-3 gap-4'>
+              <div className='grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4'>
                 {timeSlots.map((time) => {
                   const isAvailable = isTimeSlotAvailable(time)
                   const isSelected = selectedTime === time
@@ -137,7 +137,7 @@ const RealtorSchedule = ({ toggleRealotrSchedule }) => {
                     <button
                       key={time}
                       onClick={() => handleTimeSlotClick(time)}
-                      className={`p-4 text-center border rounded-lg transition-colors
+                      className={`p-3 md:p-4 text-center border rounded-lg transition-colors text-sm md:text-base
                         ${isAvailable 
                           ? 'bg-green-100 hover:bg-green-200 text-green-800 border-green-300' 
                           : 'bg-red-100 text-red-800 border-red-300 cursor-not-allowed'
@@ -157,11 +157,11 @@ const RealtorSchedule = ({ toggleRealotrSchedule }) => {
       </div>
 
       {/* Fixed bottom button */}
-      <div className='w-full p-5 bg-transparent'>
-        <h1 className='text-xl font-bold mb-2'>{selectedTime ? `Schedule for ${selectedTime} on ${selectedDate.toLocaleDateString()}` : 'Select the time slot'}</h1>
+      <div className='w-full p-3 md:p-5 bg-transparent'>
+        <h1 className='text-lg md:text-xl font-bold mb-2'>{selectedTime ? `Schedule for ${selectedTime} on ${selectedDate.toLocaleDateString()}` : 'Select the time slot'}</h1>
         <button 
           onClick={handleBooking}
-          className='w-full bg-blue-800 hover:bg-blue-900 text-white font-bold py-4 px-6 rounded-xl text-xl transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed'
+          className='w-full bg-blue-800 hover:bg-blue-900 text-white font-bold py-3 md:py-4 px-4 md:px-6 rounded-xl text-lg md:text-xl transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed'
           disabled={!selectedTime}
         >
           BOOK SLOT

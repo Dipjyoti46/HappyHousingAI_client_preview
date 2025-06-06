@@ -66,32 +66,33 @@ const InvestSQFT = ({ toggleInvestSQFT }) => {
   return (
     <div className='fixed inset-0 flex items-center justify-center z-50'>
       <div className='absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300' onClick={toggleInvestSQFT}></div>
-      <div className='w-3/4 h-[80vh] bg-white p-0 rounded-2xl shadow-2xl relative overflow-hidden z-50 transform transition-all duration-300 scale-100 hover:scale-[1.01]'>
+      <div className='w-[98vw] max-w-md md:max-w-3xl h-[98vh] md:w-3/4 md:h-[80vh] bg-white p-0 rounded-2xl shadow-2xl relative overflow-hidden z-50 transform transition-all duration-300 scale-100 hover:scale-[1.01] flex flex-col'>
         {/* Header */}
-        <div className='w-full h-16 bg-gradient-to-r from-blue-800 to-blue-600 rounded-t-2xl px-8 py-4 relative'>
+        <div className='w-full h-14 md:h-16 bg-gradient-to-r from-blue-800 to-blue-600 rounded-t-2xl px-4 md:px-8 py-3 md:py-4 relative flex items-center'>
           <button
             onClick={toggleInvestSQFT}
-            className='absolute w-8 h-8 rounded-lg top-4 right-6 bg-white/20 hover:bg-white/30 text-white font-bold text-lg transition-all duration-300 backdrop-blur-sm'
+            className='absolute w-8 h-8 md:w-8 md:h-8 rounded-lg top-3 md:top-4 right-3 md:right-6 bg-white/20 hover:bg-white/30 text-white font-bold text-lg transition-all duration-300 backdrop-blur-sm flex items-center justify-center'
+            aria-label="Close"
           >
             ×
           </button>
-          <h1 className='text-2xl font-bold text-white'>Investment Calculator</h1>
+          <h1 className='text-lg md:text-2xl font-bold text-white'>Investment Calculator</h1>
         </div>
 
         {/* Content */}
-        <div className='h-[calc(100%-4rem)] p-6'>
+        <div className='flex-1 overflow-y-auto h-full p-3 md:p-6'>
           <div className='bg-white rounded-xl h-full'>
             {error && (
-              <div className='mb-4 p-3 bg-red-50 border-l-4 border-red-500 text-red-700 rounded-lg animate-fade-in'>
-                <p className='font-medium text-sm'>{error}</p>
+              <div className='mb-4 p-2 md:p-3 bg-red-50 border-l-4 border-red-500 text-red-700 rounded-lg animate-fade-in'>
+                <p className='font-medium text-xs md:text-sm'>{error}</p>
               </div>
             )}
             
-            <div className='grid grid-cols-2 gap-6 h-full'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 h-full'>
               {/* Calculator Section */}
-              <div className='space-y-6 p-4'>
-                <div className='bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl shadow-sm'>
-                  <label className='block text-gray-700 text-lg font-bold mb-4 flex items-center'>
+              <div className='space-y-4 md:space-y-6 p-2 md:p-4'>
+                <div className='bg-gradient-to-br from-blue-50 to-white p-3 md:p-6 rounded-xl shadow-sm'>
+                  <label className='block text-gray-700 text-base md:text-lg font-bold mb-2 md:mb-4 flex items-center'>
                     <svg className="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
                     </svg>
@@ -101,7 +102,7 @@ const InvestSQFT = ({ toggleInvestSQFT }) => {
                     <div className='flex items-center bg-white rounded-xl shadow-sm border border-blue-100 overflow-hidden'>
                       <button
                         onClick={decrementArea}
-                        className='w-14 h-14 flex items-center justify-center bg-gradient-to-b from-blue-50 to-white hover:from-red-50 hover:to-red-100 text-blue-600 hover:text-red-600 font-bold text-2xl transition-all duration-300 border-r border-blue-100'
+                        className='w-10 h-10 md:w-14 md:h-14 flex items-center justify-center bg-gradient-to-b from-blue-50 to-white hover:from-red-50 hover:to-red-100 text-blue-600 hover:text-red-600 font-bold text-xl md:text-2xl transition-all duration-300 border-r border-blue-100'
                       >
                         −
                       </button>
@@ -110,31 +111,31 @@ const InvestSQFT = ({ toggleInvestSQFT }) => {
                           type="number"
                           value={area}
                           onChange={handleAreaChange}
-                          className='w-full h-14 px-4 border-0 focus:ring-0 focus:outline-none text-center text-xl font-semibold text-gray-800 placeholder-gray-400'
+                          className='w-full h-10 md:h-14 px-2 md:px-4 border-0 focus:ring-0 focus:outline-none text-center text-base md:text-xl font-semibold text-gray-800 placeholder-gray-400'
                           placeholder="Enter area"
                           min="0"
                           max={availableArea}
                         />
-                        <span className='absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm font-medium bg-gray-50 px-2 py-1 rounded-md'>
+                        <span className='absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs md:text-sm font-medium bg-gray-50 px-1.5 md:px-2 py-0.5 md:py-1 rounded-md'>
                           sq ft
                         </span>
                       </div>
                       <button
                         onClick={incrementArea}
-                        className='w-14 h-14 flex items-center justify-center bg-gradient-to-b from-blue-50 to-white hover:from-green-50 hover:to-green-100 text-blue-600 hover:text-green-600 font-bold text-2xl transition-all duration-300 border-l border-blue-100'
+                        className='w-10 h-10 md:w-14 md:h-14 flex items-center justify-center bg-gradient-to-b from-blue-50 to-white hover:from-green-50 hover:to-green-100 text-blue-600 hover:text-green-600 font-bold text-xl md:text-2xl transition-all duration-300 border-l border-blue-100'
                       >
                         +
                       </button>
                     </div>
                   </div>
-                  <div className='mt-4 flex items-center justify-between text-sm'>
-                    <span className='text-gray-500 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-100'>Min: 0 sq ft</span>
-                    <span className='text-gray-500 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-100'>Max: {availableArea} sq ft</span>
+                  <div className='mt-2 md:mt-4 flex items-center justify-between text-xs md:text-sm'>
+                    <span className='text-gray-500 bg-gray-50 px-2 md:px-3 py-1 rounded-lg border border-gray-100'>Min: 0 sq ft</span>
+                    <span className='text-gray-500 bg-gray-50 px-2 md:px-3 py-1 rounded-lg border border-gray-100'>Max: {availableArea} sq ft</span>
                   </div>
                 </div>
 
-                <div className='bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl shadow-sm'>
-                  <label className='block text-gray-700 text-lg font-bold mb-4 flex items-center'>
+                <div className='bg-gradient-to-br from-blue-50 to-white p-3 md:p-6 rounded-xl shadow-sm'>
+                  <label className='block text-gray-700 text-base md:text-lg font-bold mb-2 md:mb-4 flex items-center'>
                     <svg className="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
