@@ -1,6 +1,7 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "happyhousingai",
-  "homepage": "https://dipjyoti46.github.io/HappyHousingAI",
+  "homepage": "https://Dipjyoti46.github.io/HappyHousingAI",
   "private": true,
   "version": "0.0.0",
   "type": "module",
