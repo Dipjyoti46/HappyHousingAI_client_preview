@@ -8,9 +8,8 @@ import Partnerbank from './Partnerbank'
 import Calculators from './Calculators'
 import Footer from './Footer'
 import Adsslide from './Adsslide'
-import { Link } from 'react-router-dom'
 
-const Home = () => {
+const home = () => {
   return (
     <div
         style={{
@@ -21,7 +20,7 @@ const Home = () => {
             backgroundPosition: "center",
             backgroundAttachment: "fixed"
         }}
-        className='flex flex-col items-center'
+        className='flex flex-col item-center'
     >
         <div className='pt-20'>
             <Tagline/>
@@ -29,21 +28,7 @@ const Home = () => {
         <div className='mt-10'>
             <Searchbar/>
         </div>
-        <div className='flex flex-col items-center justify-center w-full'>
-            <div className='text-center my-12 px-4'>
-                <h1 className='text-4xl md:text-5xl font-bold text-white mb-6'>
-                    Find Your Dream Home with AI
-                </h1>
-                <p className='text-xl text-white mb-8 max-w-2xl mx-auto'>
-                    Discover the perfect property with our AI-powered search and personalized recommendations
-                </p>
-                <Link 
-                    to="/propgpt" 
-                    className='bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300'
-                >
-                    Try PropGPT
-                </Link>
-            </div>
+        <div className='flex flex-col item-center justify-center'>
             <Features/>
             <Adsslide />
             <Topoffers/>
@@ -55,4 +40,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default home
