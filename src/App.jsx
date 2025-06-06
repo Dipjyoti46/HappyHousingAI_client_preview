@@ -6,7 +6,7 @@ import SearchPage from './components/SearchPage'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/HappyHousingAI">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
