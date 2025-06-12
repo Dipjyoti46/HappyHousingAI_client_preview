@@ -20,9 +20,12 @@ const Offercard = ({
   gmda_pp 
 }) => {
   return (
-    <div className='w-full md:w-120 h-auto bg-white rounded-xl shadow-md overflow-hidden'>
+    <div className='w-full md:w-120 h-auto bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl shadow-lg overflow-hidden border border-gray-200 relative'>
+      {/* Add a subtle pattern overlay */}
+      <div className='absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-50'></div>
+      
       {/* Mobile View */}
-      <div className='md:hidden'>
+      <div className='md:hidden relative z-10'>
         {/* Image Section */}
         <div className='relative h-48 w-full'>
           <img 
@@ -81,45 +84,46 @@ const Offercard = ({
           <div className='grid grid-cols-2 gap-2'>
             <button 
               onClick={() => toggleProjectdetails({ rera, gmc_noc, gmda_pp, buildername })} 
-              className='bg-blue-800 text-white p-2 rounded text-sm hover:bg-blue-900'
+              className='bg-[#03dac5] text-black p-2 rounded text-sm hover:bg-blue-900 border border-blue-900'
             >
               Project Details
             </button>
             <button 
               onClick={toggleBorcher} 
-              className='bg-blue-800 text-white p-2 rounded text-sm hover:bg-blue-900'
+              className='bg-[#03dac5] text-black p-2 rounded text-sm hover:bg-blue-900 border border-blue-900'
             >
               Photos & Video
             </button>
             <button 
               onClick={toggleRealotrs} 
-              className='bg-blue-800 text-white p-2 rounded text-sm hover:bg-blue-900'
+              className='bg-[#03dac5] text-black p-2 rounded text-sm hover:bg-blue-900 border border-blue-900'
             >
               Available Realtors
             </button>
             <button 
               onClick={toggleInvestSQFT} 
-              className='bg-blue-800 text-white p-2 rounded text-sm hover:bg-blue-900'
+              className='bg-[#03dac5] text-black p-2 rounded text-sm hover:bg-blue-900 border border-blue-900'
             >
               Invest per SQFT
             </button>
             <button 
               onClick={togglePriceAvailability} 
-              className='bg-blue-800 text-white p-2 rounded text-sm hover:bg-blue-900 col-span-2'
+              className='bg-[#03dac5] text-black p-2 rounded text-sm hover:bg-blue-900 border border-blue-900 col-span-2'
             >
               Price & Availability
             </button>
             <button 
-              className='bg-green-500 text-white p-2 rounded text-sm hover:bg-green-600 col-span-2'
+              className='bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 text-white px-6 py-2.5 rounded-lg text-sm font-bold hover:from-blue-700 hover:via-purple-700 hover:to-pink-600 transform hover:scale-105 transition-all duration-300 shadow-[0_8px_16px_rgb(0_0_0/0.2)] hover:shadow-[0_12px_20px_rgb(0_0_0/0.3)] border-2 border-white/20 hover:border-white/40 relative overflow-hidden group flex items-center justify-center'
             >
-              Book Now
+              <span className='relative z-10 whitespace-nowrap'>Book Now</span>
+              <div className='absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000'></div>
             </button>
           </div>
         </div>
       </div>
 
       {/* Desktop View - Keep existing layout */}
-      <div className='hidden md:block'>
+      <div className='hidden md:block relative z-10'>
         <div className='flex'>
           <div className='text-black p-4 mt-10 flex flex-col justify-between'>
             <div className="flex">
@@ -149,38 +153,39 @@ const Offercard = ({
         <div className='text-white grid grid-cols-4 gap-2 ml-2 mr-2 mb-2'>
           <button 
             onClick={() => toggleProjectdetails({ rera, gmc_noc, gmda_pp, buildername })} 
-            className='bg-blue-800 p-4 col-span-2 rounded-sm hover:border-1 hover:border-offset-2 hover:border-white hover:font-bold'
+            className='bg-[#03dac5] text-black p-4 col-span-2 rounded-sm hover:border-1 hover:border-offset-2 hover:border-white hover:font-bold border border-blue-900'
           >
             Project Details
           </button>
           <button 
             onClick={toggleBorcher} 
-            className='bg-blue-800 p-4 col-span-2 rounded-sm hover:border-1 hover:border-offset-2 hover:border-white hover:font-bold'
+            className='bg-[#03dac5] text-black p-4 col-span-2 rounded-sm hover:border-1 hover:border-offset-2 hover:border-white hover:font-bold border border-blue-900'
           >
             Photos & Video
           </button>
           <button 
             onClick={toggleRealotrs} 
-            className='bg-blue-800 p-4 col-span-2 rounded-sm hover:border-1 hover:border-offset-2 hover:border-white hover:font-bold'
+            className='bg-[#03dac5] text-black p-4 col-span-2 rounded-sm hover:border-1 hover:border-offset-2 hover:border-white hover:font-bold border border-blue-900'
           >
             Available Realtors
           </button>
           <button 
             onClick={toggleInvestSQFT} 
-            className='bg-blue-800 p-4 col-span-2 rounded-sm hover:border-1 hover:border-offset-2 hover:border-white hover:font-bold'
+            className='bg-[#03dac5] text-black p-4 col-span-2 rounded-sm hover:border-1 hover:border-offset-2 hover:border-white hover:font-bold border border-blue-900'
           >
             Invest per SQFT
           </button>
           <button 
             onClick={togglePriceAvailability} 
-            className='bg-blue-800 p-4 col-span-3 rounded-sm hover:border-1 hover:border-offset-2 hover:border-white hover:font-bold'
+            className='bg-[#03dac5] text-black p-4 col-span-3 rounded-sm hover:border-1 hover:border-offset-2 hover:border-white hover:font-bold border border-blue-900'
           >
             Price & Availability
           </button>
           <button 
-            className='bg-green-400 p-2 rounded-sm text-bold text-black border-2 hover:border-1 hover:border-offset-2 hover:border-white hover:font-bold'
+            className='bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 text-white px-8 py-3 rounded-lg font-bold hover:from-blue-700 hover:via-purple-700 hover:to-pink-600 transform hover:scale-105 transition-all duration-300 shadow-[0_8px_16px_rgb(0_0_0/0.2)] hover:shadow-[0_12px_20px_rgb(0_0_0/0.3)] border-2 border-white/20 hover:border-white/40 relative overflow-hidden group flex items-center justify-center'
           >
-            Book Now
+            <span className='relative z-10 whitespace-nowrap'>Book Now</span>
+            <div className='absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000'></div>
           </button>
         </div>
       </div>

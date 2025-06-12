@@ -17,7 +17,7 @@ const Borcher = ({toggleBorcher}) => {
           <div className='w-full h-20 bg-blue-800/90 rounded-tl-xl rounded-tr-xl p-5 relative'>
             <button
               onClick={toggleBorcher}
-              className='absolute w-10 h-10 rounded-xl top-2 right-2 bg-white text-black font-bold text-xl'
+              className='absolute w-10 h-10 rounded-xl top-2 right-2 bg-white text-black font-bold text-xl border border-green-700 hover:bg-green-700 hover:text-white transition-all duration-300'
             >
               X
             </button>

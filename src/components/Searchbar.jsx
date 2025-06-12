@@ -16,20 +16,20 @@ const Searchbar = () => {
             <select 
               name="" 
               id="" 
-              className='w-24 md:w-50 p-1.5 md:p-2 px-2 md:px-3 border-2 border-blue-300 bg-blue-900 text-white text-sm md:text-base rounded-md focus:outline-none focus:border-blue-400'
+              className='w-24 md:w-50 p-1.5 md:p-2 px-2 md:px-3 border-2 border-blue-300 bg-[#03dac5] text-black text-sm md:text-base rounded-md focus:outline-none focus:border-blue-400'
             >
-                <option className='text-black bg-blue-200 border-2 border-white border-offset-2' value="1">Guwhati</option>
-                <option className='text-black bg-blue-200 border-2 border-white border-offset-2' value="2">North Guwahati</option>
-                <option className='text-black bg-blue-200 border-2 border-white border-offset-2' value="3">Jorhat</option>
-                <option className='text-black bg-blue-200 border-2 border-white border-offset-2' value="4">Sivsagr</option>
-                <option className='text-black bg-blue-200 border-2 border-white border-offset-2' value="5">Kokrajhar</option>
+                <option className='bg-[#03dac5] text-black border-2 border-white border-offset-2' value="1">Guwhati</option>
+                <option className='bg-[#03dac5] text-black border-2 border-white border-offset-2' value="2">North Guwahati</option>
+                <option className='bg-[#03dac5] text-black border-2 border-white border-offset-2' value="3">Jorhat</option>
+                <option className='bg-[#03dac5] text-black border-2 border-white border-offset-2' value="4">Sivsagr</option>
+                <option className='bg-[#03dac5] text-black border-2 border-white border-offset-2' value="5">Kokrajhar</option>
             </select>
             <input 
               type="text" 
               placeholder="Search.." 
               className='w-36 md:w-150 p-1.5 md:p-2 border-2 border-gray-300 bg-white text-sm md:text-base rounded-md focus:outline-none focus:border-blue-400' 
             />
-            <button className='h-full flex items-center gap-1.5 md:gap-2 bg-blue-900 text-white p-2 md:px-3 md:py-2 text-sm md:text-base rounded-md hover:bg-blue-800 transition-colors duration-300 active:bg-blue-950'>
+            <button className='h-full flex items-center gap-1.5 md:gap-2 bg-[#03dac5] text-black p-2 md:px-3 md:py-2 text-sm md:text-base rounded-md hover:text-white hover:bg-blue-600 transition-colors duration-300 active:bg-blue-950'>
                 <span className='hidden md:inline'>Near me</span>
                 <svg
                   stroke="currentColor"
@@ -44,7 +44,7 @@ const Searchbar = () => {
             </button>
             <button 
               onClick={handleSearch}
-              className='h-full flex items-center gap-1.5 md:gap-2 bg-blue-900 text-white p-2 md:px-4 md:py-2 hover:bg-blue-800 transition-colors duration-300 text-sm md:text-base rounded-md active:bg-blue-950'
+              className='h-full flex items-center gap-1.5 md:gap-2 bg-[#03dac5] text-black p-2 md:px-4 md:py-2 hover:text-white hover:bg-blue-600 transition-colors duration-300 text-sm md:text-base rounded-md active:bg-blue-950'
             >
               <span className='hidden md:inline'>Search</span>
               <svg viewBox="0 0 24 24" className="w-5 h-5 md:w-5 md:h-5" fill="currentColor" stroke="currentColor" strokeWidth="0" xmlns="http://www.w3.org/2000/svg">

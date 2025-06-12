@@ -19,6 +19,36 @@ const FLatprice = ({ toggleFLatprice, flatNumber }) => {
         <div className='bg-white rounded-xl shadow-lg p-4 md:p-6'>
           <h2 className='text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4'>Flat {flatNumber}</h2>
           
+          {/* Window View and Flat Map */}
+          <div className='mb-6 md:mb-8'>
+            <h3 className='text-base md:text-lg font-semibold text-gray-700 mb-3 md:mb-4'>Window View & Floor Plan</h3>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6'>
+              {/* Window View */}
+              <div className='bg-gray-50 p-3 md:p-4 rounded-lg'>
+                <h4 className='text-sm md:text-base font-semibold text-gray-700 mb-2 md:mb-3'>Window View</h4>
+                <div className='aspect-video bg-gray-200 rounded-lg overflow-hidden'>
+                  <img 
+                    src="https://images.unsplash.com/photo-1514580597161-eb1c0b1a7971?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHdpbmRvdyUyMHZpZXd8ZW58MHx8MHx8fDA%3D" 
+                    alt="Window View" 
+                    className='w-full h-full object-cover'
+                  />
+                </div>
+              </div>
+              
+              {/* Flat Map */}
+              <div className='bg-gray-50 p-3 md:p-4 rounded-lg'>
+                <h4 className='text-sm md:text-base font-semibold text-gray-700 mb-2 md:mb-3'>Floor Plan</h4>
+                <div className='aspect-video bg-gray-200 rounded-lg overflow-hidden'>
+                  <img 
+                    src="https://media.istockphoto.com/id/1357015416/photo/a-3d-floor-plan-design.jpg?s=612x612&w=is&k=20&c=ZVZr7oS0CkG3nmHln-xN7arQkRcq-ixTsv0JqzadZAA=" 
+                    alt="Floor Plan" 
+                    className='w-full h-full object-cover'
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Price Details */}
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6'>
             <div className='bg-gray-50 p-3 md:p-4 rounded-lg'>

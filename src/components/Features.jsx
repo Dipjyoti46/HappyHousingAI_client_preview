@@ -17,9 +17,9 @@ const Features = () => {
 
   return (
     <div className="w-full">
-      <div className='flex flex-col items-center w-full py-6 bg-black/10 backdrop-blur-md rounded-xl'>
+      <div className='flex flex-col items-center w-full py-6 bg-white backdrop-blur-md'>
         <div className='w-full px-4'>
-          <h1 className='text-white text-2xl md:text-4xl font-bold mb-4 md:mb-8'>Special Features</h1>
+          <h1 className='text-black text-2xl md:text-4xl font-bold mb-4 md:mb-8'>Special Features</h1>
         </div>
         {/* Mobile view with buttons */}
         <div className='md:hidden w-full relative'>

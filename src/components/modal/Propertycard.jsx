@@ -84,19 +84,19 @@ const Propertycard = ({
             <div className='grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6'>
               <button 
                 onClick={() => toggleProjectdetails({ rera, gmc_noc, gmda_pp, buildername })} 
-                className='w-full h-12 flex items-center justify-center bg-gradient-to-r from-blue-700 to-blue-800 rounded-xl hover:from-blue-800 hover:to-blue-900 transition-all duration-300 text-white font-medium text-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5'
+                className='w-full h-12 flex items-center justify-center bg-[#03dac5] rounded-xl hover:bg-[#02b8a7] transition-all duration-300 text-gray-800 font-medium text-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5'
               >
                 Project and Firm Details
               </button>
               <button 
                 onClick={toggleBorcher}
-                className='w-full h-12 flex items-center justify-center bg-gradient-to-r from-blue-700 to-blue-800 rounded-xl hover:from-blue-800 hover:to-blue-900 transition-all duration-300 text-white font-medium text-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5'
+                className='w-full h-12 flex items-center justify-center bg-[#03dac5] rounded-xl hover:bg-[#02b8a7] transition-all duration-300 text-gray-800 font-medium text-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5'
               >
                 Photos & Videos
               </button>
               <button 
                 onClick={toggleRealotrs}
-                className='w-full h-12 flex items-center justify-center bg-gradient-to-r from-blue-700 to-blue-800 rounded-xl hover:from-blue-800 hover:to-blue-900 transition-all duration-300 text-white font-medium text-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5'
+                className='w-full h-12 flex items-center justify-center bg-[#03dac5] rounded-xl hover:bg-[#02b8a7] transition-all duration-300 text-gray-800 font-medium text-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5'
               >
                 Realtors
               </button>
@@ -106,17 +106,17 @@ const Propertycard = ({
             <div className='grid grid-cols-1 sm:grid-cols-3 gap-3'>
               <button 
                 onClick={toggleInvestSQFT}
-                className='w-full h-12 flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5'
+                className='w-full h-12 flex items-center justify-center bg-[#03dac5] text-gray-800 rounded-xl font-semibold hover:bg-[#02b8a7] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5'
               >
                 Invest per SQFT
               </button>
               <button 
                 onClick={togglePriceAvailability}
-                className='sm:col-span-2 w-full h-12 flex items-center px-4 bg-blue-600 border-2 border-blue-800 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5'
+                className='sm:col-span-2 w-full h-12 flex items-center px-4 bg-[#03dac5] border-2 border-[#02b8a7] text-gray-800 rounded-xl font-semibold hover:bg-[#02b8a7] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5'
               >
                 <span className='flex-1 text-center'>Price Calculation and Availability</span>
                 <button 
-                  className='h-10 px-4 bg-green-500 border-2 border-green-700 text-white rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 shadow-sm hover:shadow-md text-sm'
+                  className='h-10 px-4 bg-white border-2 border-[#03dac5] text-black rounded-lg font-semibold hover:bg-green-700 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md text-sm'
                   onClick={(e) => e.stopPropagation()} // Prevent outer button click
                 >
                   Book Now

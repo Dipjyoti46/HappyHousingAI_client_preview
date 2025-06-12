@@ -81,9 +81,9 @@ const Topoffers = () => {
 
   return (
     <div className='relative'>
-      <div className='flex flex-col item-center w-full h-auto bg-black/10 backdrop-blur-md rounded-xl'>
+      <div className='flex flex-col item-center w-full h-auto bg-white backdrop-blur-md'>
         <div className='container mx-auto px-4 py-8'>
-          <h1 className='text-3xl md:text-4xl font-bold text-white mb-8'>Top Offers Project</h1>
+          <h1 className='text-3xl md:text-4xl font-bold text-black mb-8'>Top Offers Project</h1>
           
           {/* Mobile view with buttons */}
           <div className='md:hidden w-full relative'>

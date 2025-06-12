@@ -83,16 +83,16 @@ const SearchPage = () => {
       {/* Results Section */}
       <div className='container mx-auto px-4 py-8'>
         <div className='flex justify-between items-center mb-6'>
-          <h2 className='text-2xl font-bold text-gray-800'>Search Results</h2>
+          <h2 className='text-xl md:text-xl font-bold text-gray-800'>Search Results</h2>
           <div className='flex gap-4'>
-            <select className='p-2 border border-gray-300 rounded-lg bg-white'>
+            <select className='p-2 border-2 border-[#03dac5] bg-[#03dac5] text-black rounded-lg focus:outline-none focus:border-[#02b8a7]'>
               <option>Sort by: Latest</option>
               <option>Price: Low to High</option>
               <option>Price: High to Low</option>
               <option>Area: Low to High</option>
               <option>Area: High to Low</option>
             </select>
-            <select className='p-2 border border-gray-300 rounded-lg bg-white'>
+            <select className='p-2 border-2 border-[#03dac5] bg-[#03dac5] text-black rounded-lg focus:outline-none focus:border-[#02b8a7]'>
               <option>Filter by: All</option>
               <option>2 BHK</option>
               <option>3 BHK</option>

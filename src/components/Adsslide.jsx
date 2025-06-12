@@ -28,7 +28,7 @@ const Adsslide = () => {
 
   return (
     <div className='w-full overflow-hidden mt-0 h-auto relative bg-black/10 backdrop-blur-md'>
-      <div className="absolute inset-0 bg-black-to-br from-black/10 via-black to-gray-900 opacity-90"></div>
+      <div className="absolute inset-0 bg-white-to-br from-whitw via-black to-gray-900 opacity-90"></div>
       <h1 className='text-white text-2xl md:text-4xl font-bold pl-5 mt-5 mb-5 relative z-20'>Get Best Deals</h1>
       <div 
         className="flex transition-transform duration-500 ease-in-out h-full relative z-10"

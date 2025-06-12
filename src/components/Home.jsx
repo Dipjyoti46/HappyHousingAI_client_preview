@@ -9,6 +9,7 @@ import Calculators from './Calculators'
 import Footer from './Footer'
 import Adsslide from './Adsslide'
 
+
 const home = () => {
   return (
     <div

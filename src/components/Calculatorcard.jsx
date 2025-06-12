@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaCalculator } from 'react-icons/fa'
 
 const Calculatorcard = ({cname,cdescription,clogo,btnname}) => {
   return (  
@@ -9,7 +10,10 @@ const Calculatorcard = ({cname,cdescription,clogo,btnname}) => {
             <div className='flex flex-col items-start justify-center ml-4 flex-grow'>
               <h1 className='text-lg md:text-xl font-semibold'>{cname}</h1>
               <p className='text-sm md:text-base'>{cdescription}</p>
-              <button className='bg-blue-900 px-4 py-2 rounded-lg mt-2 text-sm md:text-base hover:bg-green-700 hover:border-1 hover:border-offset-2 hover:border-white hover:font-bold transition-all duration-300'>{btnname}</button>
+              <button className='bg-[#03dac5] text-black px-4 py-2 rounded-lg mt-2 text-sm md:text-base hover:bg-blue-600 hover:text-white hover:border-1 hover:border-offset-2 hover:border-white hover:font-bold transition-all duration-300 flex items-center gap-2'>
+                <FaCalculator className="text-lg" />
+                {btnname}
+              </button>
             </div>
         </div>
   )

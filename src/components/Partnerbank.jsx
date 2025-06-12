@@ -8,8 +8,8 @@ import union from '../img/bank/download.png'
 
 const Partnerbank = () => {
   return (
-    <div className='w-full overflow-hidden bg-black/10 backdrop-blur-md h-auto min-h-[200px]'>
-      <h1 className='text-white text-2xl md:text-4xl font-bold ml-5 mt-10'>Our Partnered Banks</h1>
+    <div className='w-full overflow-hidden bg-white backdrop-blur-md h-auto min-h-[200px]'>
+      <h1 className='text-black text-2xl md:text-4xl font-bold ml-5 mt-10'>Our Partnered Banks</h1>
 
       <motion.div
         className='flex mt-10 gap-5 md:gap-10 w-max'
