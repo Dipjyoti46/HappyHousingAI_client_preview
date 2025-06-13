@@ -25,10 +25,10 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
         <button
           key={section.id}
           onClick={() => setActiveSection(section.id)}
-          className={`flex items-center gap-3 px-4 py-3 rounded-lg text-lg font-medium transition-colors duration-200 ${
+          className={`flex items-center  gap-3 px-4 py-3 rounded-lg text-lg font-medium transition-colors duration-200 ${
             activeSection === section.id
-              ? 'bg-blue-600 text-white shadow'
-              : 'bg-gray-100 text-gray-700 hover:bg-blue-100'
+              ? 'bg-blue-600 text-black shadow'
+              : 'bg-gray-100 text-black text-gray-700 hover:bg-blue-100'
           }`}
         >
           {section.icon}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Featurecard from './Featurecard'
-import chatbot from '../img/chatbot.svg'
-import hlocker from '../img/hlocker.svg'
+import chatbot from '../img/features/propgpt.png'
+import hlocker from '../img/features/housinglocker.png'
 
 const Features = () => {
   const [currentCard, setCurrentCard] = useState(0);

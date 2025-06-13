@@ -15,27 +15,27 @@ const SavedProperties = () => {
               className="w-full h-48 object-cover rounded-t-2xl"
             />
             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-md">
-              <span className="text-blue-800 font-semibold text-sm">New Launch</span>
+              <span className="text-[#03dac5] font-semibold text-sm">New Launch</span>
             </div>
           </div>
           <div className="p-4">
             <h3 className="text-xl font-bold text-gray-800 mb-2">3 BHK Apartment</h3>
             <div className="flex items-center text-gray-600 mb-2">
-              <FaMapMarkerAlt className="text-red-500 mr-2" />
+              <FaMapMarkerAlt className="text-[#03dac5] mr-2" />
               <span>Downtown Area, New York</span>
             </div>
             <p className="text-gray-700 font-medium mb-2">By Divyasagar Developers</p>
             <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
               <span className="flex items-center gap-1">
-                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                <span className="w-2 h-2 bg-[#03dac5] rounded-full"></span>
                 G+8 Building
               </span>
               <span className="flex items-center gap-1">
-                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                <span className="w-2 h-2 bg-[#03dac5] rounded-full"></span>
                 3BHK - 1430sqft
               </span>
             </div>
-            <button className="w-full h-12 flex items-center justify-center bg-[#03dac5] rounded-xl hover:bg-[#02b8a7] transition-all duration-300 text-gray-800 font-medium text-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+            <button className="w-full h-12 flex items-center justify-center bg-[#03dac5] rounded-xl hover:bg-[#02b8a7] transition-all duration-300 text-black font-medium text-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
               View Property
             </button>
           </div>

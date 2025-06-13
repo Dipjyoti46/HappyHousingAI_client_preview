@@ -9,7 +9,8 @@ import {
   faCrown,
   faEdit,
   faKey,
-  faBell
+  faBell,
+  faCamera
 } from '@fortawesome/free-solid-svg-icons'
 
 const AccountDetails = () => {
@@ -19,7 +20,7 @@ const AccountDetails = () => {
         {/* Header Section */}
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-bold text-gray-800">My Profile</h2>
-          <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+          <button className="flex items-center gap-2 px-4 py-2 bg-[#03dac5] text-black rounded-lg hover:bg-[#02b8a7] transition-all duration-300">
             <FontAwesomeIcon icon={faEdit} />
             <span>Edit Profile</span>
           </button>
@@ -30,8 +31,8 @@ const AccountDetails = () => {
           <div className="flex-shrink-0">
             <div className="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center relative">
               <FontAwesomeIcon icon={faUserCircle} className="text-7xl text-gray-500" />
-              <button className="absolute bottom-0 right-0 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700">
-                <FontAwesomeIcon icon={faEdit} className="text-sm" />
+              <button className="absolute bottom-0 right-0 bg-[#03dac5] text-black p-2 rounded-full hover:bg-[#02b8a7] transition-all duration-300">
+                <FontAwesomeIcon icon={faCamera} className="text-sm" />
               </button>
             </div>
           </div>
@@ -39,15 +40,15 @@ const AccountDetails = () => {
             <h3 className="text-2xl font-semibold text-gray-800 mb-2">John Doe</h3>
             <div className="space-y-2">
               <p className="flex items-center gap-2 text-gray-600">
-                <FontAwesomeIcon icon={faEnvelope} className="text-blue-600" />
+                <FontAwesomeIcon icon={faEnvelope} className="text-[#03dac5]" />
                 john.doe@example.com
               </p>
               <p className="flex items-center gap-2 text-gray-600">
-                <FontAwesomeIcon icon={faPhone} className="text-blue-600" />
+                <FontAwesomeIcon icon={faPhone} className="text-[#03dac5]" />
                 +1 (555) 123-4567
               </p>
               <p className="flex items-center gap-2 text-gray-600">
-                <FontAwesomeIcon icon={faMapMarkerAlt} className="text-blue-600" />
+                <FontAwesomeIcon icon={faMapMarkerAlt} className="text-[#03dac5]" />
                 New York, USA
               </p>
             </div>
@@ -57,8 +58,8 @@ const AccountDetails = () => {
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Personal Information */}
-          <div className="bg-gray-50 rounded-xl p-6">
-            <h4 className="text-xl font-semibold text-gray-800 mb-4">Personal Information</h4>
+          <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-6">
+            <h4 className="text-xl font-semibold text-[#03dac5] mb-4">Personal Information</h4>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-600">Full Name</label>
@@ -76,33 +77,33 @@ const AccountDetails = () => {
           </div>
 
           {/* Account Status */}
-          <div className="bg-gray-50 rounded-xl p-6">
-            <h4 className="text-xl font-semibold text-gray-800 mb-4">Account Status</h4>
+          <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-6">
+            <h4 className="text-xl font-semibold text-[#03dac5] mb-4">Account Status</h4>
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <FontAwesomeIcon icon={faCrown} className="text-yellow-500" />
+                <FontAwesomeIcon icon={faCrown} className="text-[#03dac5]" />
                 <span className="font-medium text-gray-800">Premium Member</span>
               </div>
               <div className="flex items-center gap-2">
-                <FontAwesomeIcon icon={faCalendarAlt} className="text-blue-600" />
+                <FontAwesomeIcon icon={faCalendarAlt} className="text-[#03dac5]" />
                 <span className="text-gray-600">Member since: January 2024</span>
               </div>
               <div className="flex items-center gap-2">
-                <FontAwesomeIcon icon={faBell} className="text-blue-600" />
+                <FontAwesomeIcon icon={faBell} className="text-[#03dac5]" />
                 <span className="text-gray-600">Notifications: Enabled</span>
               </div>
             </div>
           </div>
 
           {/* Security Settings */}
-          <div className="bg-gray-50 rounded-xl p-6">
-            <h4 className="text-xl font-semibold text-gray-800 mb-4">Security Settings</h4>
+          <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-6">
+            <h4 className="text-xl font-semibold text-[#03dac5] mb-4">Security Settings</h4>
             <div className="space-y-4">
-              <button className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
+              <button className="flex items-center gap-2 text-[#03dac5] hover:text-[#02b8a7] transition-all duration-300">
                 <FontAwesomeIcon icon={faKey} />
                 <span>Change Password</span>
               </button>
-              <button className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
+              <button className="flex items-center gap-2 text-[#03dac5] hover:text-[#02b8a7] transition-all duration-300">
                 <FontAwesomeIcon icon={faBell} />
                 <span>Manage Notifications</span>
               </button>
@@ -110,8 +111,8 @@ const AccountDetails = () => {
           </div>
 
           {/* Preferences */}
-          <div className="bg-gray-50 rounded-xl p-6">
-            <h4 className="text-xl font-semibold text-gray-800 mb-4">Preferences</h4>
+          <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-6">
+            <h4 className="text-xl font-semibold text-[#03dac5] mb-4">Preferences</h4>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-600">Language</label>

@@ -8,7 +8,7 @@ const MyListings = () => {
   const navigate = useNavigate()
 
   const handleEdit = (propertyId) => {
-    navigate(`/edit/${propertyId}`)
+    navigate(`/edit/${propertyId}/project-details`)
   }
 
   return (

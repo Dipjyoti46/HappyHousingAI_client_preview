@@ -21,6 +21,9 @@ const PropEditFlat = ({ onFlatClick }) => {
   });
   const [isFlatPriceModalOpen, setIsFlatPriceModalOpen] = useState(false);
   const [selectedFlat, setSelectedFlat] = useState(null);
+  const [isBlockSectionEditing, setIsBlockSectionEditing] = useState(false);
+  const [isFloorSectionEditing, setIsFloorSectionEditing] = useState(false);
+  const [isFlatsSectionEditing, setIsFlatsSectionEditing] = useState(false);
 
   const handleAddBlock = () => {
     const newBlockNumber = blocks.length + 1;
@@ -200,40 +203,70 @@ const PropEditFlat = ({ onFlatClick }) => {
       <h2 className="text-2xl font-semibold mb-4">Flats Details</h2>
       
       {/* Block Selection */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0 mb-2">
+        <h3 className="text-lg font-semibold">Block Selection</h3>
+        <button
+          onClick={() => setIsBlockSectionEditing(!isBlockSectionEditing)}
+          className="flex items-center gap-2 bg-blue-500 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-blue-600 transition-all duration-200 text-sm sm:text-base"
+          title={isBlockSectionEditing ? "Finish editing blocks" : "Edit blocks"}
+        >
+          {isBlockSectionEditing ? (
+            <>
+              <span>Done</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+            </>
+          ) : (
+            <>
+              <span>Edit</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+              </svg>
+            </>
+          )}
+        </button>
+      </div>
       <div className="mb-6">
-        <div className="p-2 md:p-5 overflow-x-auto w-full">
+        <div className="p-1 sm:p-2 md:p-5 overflow-x-auto w-full">
           <table className="table-auto w-full bg-blue-300 text-white">
             <tbody>
-              <tr>
+              <tr className="flex flex-wrap gap-1 sm:gap-2 md:gap-3">
                 {blocks.map((block, index) => (
-                  <td key={index} className="p-1 md:p-3">
+                  <td key={index} className="p-1 sm:p-2 md:p-3 flex-grow sm:flex-grow-0">
                     <div className="relative group">
                       <button
-                        className={`text-black transition delay-10 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 w-full h-full font-bold rounded-xl border-2 border-black p-2 md:p-4 cursor-pointer text-sm md:text-base ${
-                          selectedBlock === block.name ? 'bg-green-400' : 'bg-white/80'
+                        className={`transition delay-10 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 w-full h-full font-bold rounded-xl border-2 p-1.5 sm:p-2 md:p-4 cursor-pointer text-xs sm:text-sm md:text-base ${
+                          selectedBlock === block.name 
+                            ? 'bg-gradient-to-br from-emerald-400 to-emerald-500 text-white border-emerald-600 shadow-lg' 
+                            : 'bg-gradient-to-br from-slate-50 to-slate-100 text-slate-700 border-slate-200 hover:border-slate-300 hover:shadow-md'
                         }`}
                         onClick={() => setSelectedBlock(block.name)}
                       >
                         {block.name}
                       </button>
-                      <button
-                        onClick={() => handleRemoveBlock(block.name)}
-                        className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-600"
-                        title="Delete Block"
-                      >
-                        ×
-                      </button>
+                      {isBlockSectionEditing && (
+                        <button
+                          onClick={() => handleRemoveBlock(block.name)}
+                          className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-red-500 text-white rounded-full w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-600 shadow-md text-xs sm:text-base"
+                          title="Delete Block"
+                        >
+                          ×
+                        </button>
+                      )}
                     </div>
                   </td>
                 ))}
-                <td className="p-1 md:p-3">
-                  <button
-                    onClick={handleAddBlock}
-                    className="transition delay-10 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 w-full h-full bg-white/80 text-black font-bold rounded-xl border-2 border-black p-2 md:p-4 hover:bg-green-400 cursor-pointer text-sm md:text-base"
-                  >
-                    + Add Block
-                  </button>
-                </td>
+                {isBlockSectionEditing && (
+                  <td className="p-1 sm:p-2 md:p-3 flex-grow sm:flex-grow-0">
+                    <button
+                      onClick={handleAddBlock}
+                      className="transition delay-10 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 w-full h-full bg-gradient-to-br from-slate-50 to-slate-100 text-slate-700 font-bold rounded-xl border-2 border-slate-200 p-1.5 sm:p-2 md:p-4 hover:border-slate-300 hover:shadow-md cursor-pointer text-xs sm:text-sm md:text-base"
+                    >
+                      + Add Block
+                    </button>
+                  </td>
+                )}
               </tr>
             </tbody>
           </table>
@@ -241,42 +274,44 @@ const PropEditFlat = ({ onFlatClick }) => {
       </div>
 
       {/* Flats Grid */}
-      <div className="p-2 md:p-5 overflow-x-auto w-full">
+      <div className="p-1 sm:p-2 md:p-5 overflow-x-auto w-full">
         <div className="overflow-x-auto rounded-xl shadow-lg">
-          <div className="flex flex-col w-full items-center justify-center h-auto bg-blue-900 pt-2 pb-2">
-            <div className="flex items-center gap-4">
-              <h1 className="font-bold text-2xl md:text-3xl text-white">{selectedBlock}</h1>
+          <div className="flex flex-col w-full items-center justify-center h-auto bg-gradient-to-br from-slate-50 to-slate-100 border-2 border-slate-200 pt-3 sm:pt-4 pb-3 sm:pb-4 rounded-xl">
+            <div className="flex items-center gap-2 sm:gap-4">
+              <h1 className="font-bold text-xl sm:text-2xl md:text-3xl text-slate-700 tracking-wide">{selectedBlock}</h1>
             </div>
             {selectedBlock && (
-              <div className="mt-4 w-full max-w-3xl px-4">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-white font-medium">Floor Configuration</span>
+              <div className="mt-3 sm:mt-4 w-full max-w-3xl px-2 sm:px-4">
+                {isBlockSectionEditing && (
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 mb-3">
+                    <div className="flex items-center gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 text-slate-600" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-slate-700 font-medium text-sm sm:text-base">Floor Configuration</span>
+                    </div>
+                    <button
+                      onClick={() => setIsFloorConfigOpen(!isFloorConfigOpen)}
+                      className="flex items-center gap-2 bg-white/80 hover:bg-white text-slate-700 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg transition-all duration-200 border border-slate-200 hover:border-slate-300 hover:shadow-md text-sm sm:text-base"
+                    >
+                      {isFloorConfigOpen ? (
+                        <>
+                          <span>Close</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                          </svg>
+                        </>
+                      ) : (
+                        <>
+                          <span>Configure</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+                          </svg>
+                        </>
+                      )}
+                    </button>
                   </div>
-                  <button
-                    onClick={() => setIsFloorConfigOpen(!isFloorConfigOpen)}
-                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg transition-all duration-200"
-                  >
-                    {isFloorConfigOpen ? (
-                      <>
-                        <span>Close</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                        </svg>
-                      </>
-                    ) : (
-                      <>
-                        <span>Configure</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
-                        </svg>
-                      </>
-                    )}
-                  </button>
-                </div>
+                )}
                 
                 {isFloorConfigOpen && (
                   <div className="p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20">
@@ -369,21 +404,25 @@ const PropEditFlat = ({ onFlatClick }) => {
                             >
                               {flatId}
                             </button>
-                            <button
-                              onClick={() => handleRemoveFlatFromFloor(selectedBlock, floor, pos)}
-                              className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-600 text-sm"
-                              title="Remove Flat"
-                            >
-                              ×
-                            </button>
+                            {isBlockSectionEditing && (
+                              <button
+                                onClick={() => handleRemoveFlatFromFloor(selectedBlock, floor, pos)}
+                                className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-600 text-sm"
+                                title="Remove Flat"
+                              >
+                                ×
+                              </button>
+                            )}
                           </div>
                         ) : (
-                          <button
-                            onClick={() => handleAddFlatToFloor(selectedBlock, floor, pos)}
-                            className="w-full h-full px-4 py-2 text-sm md:text-base font-semibold rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
-                          >
-                            +
-                          </button>
+                          isBlockSectionEditing && (
+                            <button
+                              onClick={() => handleAddFlatToFloor(selectedBlock, floor, pos)}
+                              className="w-full h-full px-4 py-2 text-sm md:text-base font-semibold rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+                            >
+                              +
+                            </button>
+                          )
                         )}
                       </td>
                     );
